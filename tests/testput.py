@@ -1,8 +1,9 @@
 from lib.base_case import BaseCase
 from lib.assertions import Assertions
 import requests
+import allure
 
-
+@allure.title("User edit cases")
 class TestUserEdit(BaseCase):
     def test_edit_created_user(self):
         register_data = self.prepare_registration_data()

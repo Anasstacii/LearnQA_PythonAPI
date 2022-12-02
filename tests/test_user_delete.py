@@ -1,8 +1,10 @@
 from lib.base_case import BaseCase
 from lib.assertions import Assertions
 from lib.My_requests import My_requests
+import allure
 
 class TestUserDelete(BaseCase):
+    @allure.description("Delete user")
     def test_delete_user_id2(self):
 
         data = {
@@ -33,6 +35,7 @@ class TestUserDelete(BaseCase):
             "User with same ID deleted"
         )
 
+    @allure.description("Create, Auth, Delete")
     def test_del_new_user(self):
         register_data = self.prepare_registration_data()
         response4 = My_requests.post("/user/", data=register_data)
@@ -64,7 +67,7 @@ class TestUserDelete(BaseCase):
         Assertions.assert_code_status(response7, 404)
         assert response7.content.decode("utf-8") == "User not found", f"User ID in not equal {user_id}"
 
-
+    @allure.description("Delete by another user")
     def test_del_another_user(self):
         register_data = self.prepare_registration_data()
         response8 = My_requests.post("/user/", data=register_data)

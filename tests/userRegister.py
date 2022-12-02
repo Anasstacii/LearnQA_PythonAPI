@@ -3,6 +3,7 @@ from lib.assertions import Assertions
 import requests
 from lib.base_case import BaseCase
 
+@allure.epic("Registrations cases")
 class TestUserRegister(BaseCase):
     data = [
         ("email"),

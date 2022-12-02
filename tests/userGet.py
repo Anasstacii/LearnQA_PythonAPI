@@ -2,8 +2,9 @@ import requests
 
 from lib.base_case import BaseCase
 from lib.assertions import Assertions
+import allure
 
-
+@allure.description ("User's info")
 class TestUserGet(BaseCase):
     def test_get_not_auth(self):
         response = requests.get("https://playground.learnqa.ru/api/user/2")
